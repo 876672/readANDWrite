@@ -66,14 +66,18 @@ public class EmailServiceImpl {
             accessPermission.setCanExtractForAccessibility(true);
             accessPermission.setCanFillInForm(true);
 
-            String password = customer.getNamaPelanggan();
+            String password = customer.getNamaPelanggan().substring(0, 2)
+                    + customer.getNoAkaun().substring(0, 6);            
+            
+            System.out.println("-----------customer.getNamaPelanggan()----------------" +customer.getNamaPelanggan());
+            
             StandardProtectionPolicy spp = new StandardProtectionPolicy(password, password, accessPermission);
             spp.setEncryptionKeyLength(128);
             spp.setPermissions(accessPermission);
 
             doc.protect(spp);
 
-            File encryptedFile = new File("target/" + customer.getNamaPelanggan() + "_estatement.pdf");
+            File encryptedFile = new File("target/" + customer.getNoAkaun() + "_estatement.pdf");
             
             doc.save(pdfFile);
             attachment = new FileSystemResource(encryptedFile);
@@ -83,10 +87,7 @@ public class EmailServiceImpl {
         
         }
        
-        helper.addAttachment(attachment.getFilename(), attachment);
-        log.info("----------------------- email send successfully ----------------------");
-        emailSender.send(message);
-
+    
     }
 }
         

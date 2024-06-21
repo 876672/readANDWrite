@@ -46,13 +46,15 @@ public class ItemProcessorFile implements ItemProcessor<Customer, Customer> {
             accessPermission.setCanExtractForAccessibility(true);
             accessPermission.setCanFillInForm(true);
 
-            String password = item.getNamaPelanggan();
-            StandardProtectionPolicy spp = new StandardProtectionPolicy(password, password, accessPermission);
+            String password = item.getNamaPelanggan().substring(0, 2)
+                    + item.getNoAkaun().substring(0, 6);            
+                        StandardProtectionPolicy spp = new StandardProtectionPolicy(password, password, accessPermission);
             spp.setEncryptionKeyLength(128);
             spp.setPermissions(accessPermission);
 
             doc.protect(spp);
-
+           
+            
             File encryptedFile = new File("target/estatement.pdf");
             
             doc.save(pdfFile);

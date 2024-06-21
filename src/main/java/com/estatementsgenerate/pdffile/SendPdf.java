@@ -38,7 +38,7 @@ public class SendPdf {
 	
 //		Resource resource = new ClassPathResource("/BicReminderCL01.html");
 //		File htmlFile = resource.getFile();
-		File pdfFile = new File("target/" + customer.getNamaPelanggan() + "_estatement.pdf");
+		File pdfFile = new File("target/" + customer.getNoAkaun() + "_estatement.pdf");
 		
 		System.out.println("rtyuiop["+pdfFile);
 //		if (!htmlFile.exists()) {
