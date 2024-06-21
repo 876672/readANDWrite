@@ -42,8 +42,8 @@ public class ExcelGenerator {
 			if (!isCheck) {
 				Row row = sheet.createRow(rownum++);
 
-				row.createCell(1).setCellValue(customer.getEmailPelanggan() != null ? customer.getEmailPelanggan() : "");
-				row.createCell(0).setCellValue(customer.getEmailPelanggan());
+				row.createCell(0).setCellValue(customer.getNoAkaun() != null ? customer.getNoAkaun() : "");
+				row.createCell(1).setCellValue(customer.getEmailPelanggan());
 
 			}
 		}

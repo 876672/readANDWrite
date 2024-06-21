@@ -8,7 +8,6 @@ import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
 import org.apache.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Component;
 
 import com.estatementsgenerate.model.Customer;
@@ -34,7 +33,6 @@ public class ItemProcessorFile implements ItemProcessor<Customer, Customer> {
             throw new MessagingException("Attachment file not found: ");
         }
 
-        FileSystemResource attachment = new FileSystemResource(pdfFile);
         try (PDDocument doc = PDDocument.load(pdfFile)) {
             AccessPermission accessPermission = new AccessPermission();
             accessPermission.setCanExtractContent(true);
@@ -53,12 +51,10 @@ public class ItemProcessorFile implements ItemProcessor<Customer, Customer> {
             spp.setPermissions(accessPermission);
 
             doc.protect(spp);
+            doc.save(pdfFile);
            
             
-            File encryptedFile = new File("target/estatement.pdf");
             
-            doc.save(pdfFile);
-            attachment = new FileSystemResource(encryptedFile);
 
         }  catch (IOException e) {
             throw new MessagingException("Error processing PDF file: " + e.getMessage(), e);
