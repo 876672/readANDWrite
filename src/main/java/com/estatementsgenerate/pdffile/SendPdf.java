@@ -51,8 +51,28 @@ public class SendPdf {
 			PdfRendererBuilder builder = new PdfRendererBuilder();
 			Context context = new Context();
 		
-			context.setVariable("code",customer.getNoAkaun());
-			String htmlContent1 = templateEngine.process("BicReminderCL01", context);
+//			System.out.println(customer.getSetakat());
+//			System.out.println(customer.getNoAkaun());
+//			System.out.println(customer.getAlamatPenjamin1());
+//
+//			System.out.println(customer.getJumlahBaki());
+//
+//			System.out.println(customer.getJenisPembiayaan());
+
+
+			context.setVariable("tarikh",customer.getSetakat());
+			context.setVariable("noAkaun",customer.getNoAkaun());
+			context.setVariable("alamatPenjamin",customer.getAlamatPenjamin1());
+			context.setVariable("jenisPembiayaan",customer.getJenisPembiayaan());
+			context.setVariable("jumlahBaki",customer.getJumlahBaki());
+			context.setVariable("namaAgensi",customer.getNamaPegawaiBank1());
+			context.setVariable("alamat",customer.getAlamat());
+			context.setVariable("noTelefon",customer.getNoTelAgensi());
+			context.setVariable("noFas",customer.getNoFaksAgensi());
+			context.setVariable("namaPegawaiBank2",customer.getNamaPegawaiBank2());
+
+
+			String htmlContent1 = templateEngine.process("demo", context);
 			builder.withHtmlContent(htmlContent1,"classpath:/static/");
 			
 			builder.toStream(outputStream);

@@ -1,0 +1,145 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="Title" content="Reldyn" />
+<meta name="author" content="Bank islam powered by reldyn" />
+<meta name="subject" content="HTML to PDF" />
+<meta name="keywords" content="Reldyn" />
+<meta name="Creator" content="Reldyn" />
+
+<link rel="stylesheet" type="text/css" href="BicReminder.css" />
+</head>
+
+<body>
+	<div class="header">
+		<div>
+			<div style="display: inline-block;">
+				<img src="bankIslamLogo.png" alt="logo" height="50px" />
+				<p
+					style="margin-left: 20px; font-size: 11px; display: inline-block; vertical-align: top; line-height: 1.1">
+					Jika tidak sampai, sila kembalkan kapada -<br /> P.O. Box 12176,
+					50724 Kuala Lumpur, Malaysia
+				</p>
+			</div>
+			<div>
+				<p
+					style="font-size: 11px; margin-top: -4px; margin-left: 5px; line-height: 1.1">
+					SULIT PERSENDIRIAN<br /> Untuk dibuka oleh penorima sahaja
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div style="margin-top: 60px; margin-bottom: 150px; line-height: 1">
+		<p
+			style="font-size: 11px; display: inline-block; font-family: IBMPlexMonoBold">
+			CIK FRARAH ALIA BINTI NORDIN<br /> NO.6 LORONG 6/7A<br /> BANDAR
+			TASIK PUTERI 48020<br /> RAWANG
+		</p>
+		
+	</div>
+
+
+	<div style="font-size: 11px; margin-top: 10px; line-height: 1.1">
+		<table>
+			<tr>
+				<td class="tabledata">Tarikh</td>
+				<td class="tabledata1">: <span th:utext="${tarikh}"></span></td>
+			</tr>
+			<tr>
+				<td class="tabledata">Nombor Akaun</td>
+				<td class="tabledata1">: <span th:utext="${noAkaun}"></span></td>
+			</tr>
+			<tr>
+				<td class="tabledata">Nama / Alamat Pelanggan</td>
+				<td class="tabledata1">: <span th:utext="${alamatPenjamin}"></span></td>
+			</tr>
+			<tr>
+				<td class="tabledata">Jenis Pembiayaan</td>
+				<td class="tabledata1">: <span th:utext="${jenisPembiayaan}"></span></td>
+			</tr>
+			<tr>
+				<td class="tabledata">Jumlah Baki</td>
+				<td class="tabledata1">: <span th:utext="${jumlahBaki}"></span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="width: 100%; display: inline-block; margin-top: 20px;">
+		<span style="float: left; font-size: 11px;">Tuan/puan</span> <span
+			style="float: right; font-size: 12px;">"TANPA PERJUDIS"</span>
+	</div>
+
+	<div>
+
+
+		<p style="font-size: 11px; line-height: 1.1">
+			<span
+				style="font-family: IBMPlexMonoBold; margin-bottom: 7px; display: inline-block;"><u>PER
+					NOTIS PERLANTIKAN AGENSI KUTIPAN HUTANG</u></span><br /> <span
+				style="display: inline-block;">Harap maklum, Bank Islam Malaysia Berhad akan melantik Agensi Kutipan Hutang dibawah 
+				untuk membuat kutipan tunggakan/baki pembiayaan tuan/puan, sekiranya tunggakan gagal
+				untuk diselesaikan dalam tempoh Tujuh (7) hari dari tarikh surat ini:</span>
+		</p>
+
+
+		<div style="font-size: 11px; margin-top: 10px; line-height: 0.9">
+			<table>
+				<tr>
+					<td class="tabledata">Nama Agensi</td>
+					<td class="tabledata1">: <span th:utext="${namaAgensi}"></span></td>
+				</tr>
+				<tr>
+					<td class="tabledata">Alamat</td>
+					<td class="tabledata1">: <span th:utext="${alamat}"></span></td>
+				</tr>
+				<tr>
+					<td class="tabledata">No. Telefon</td>
+					<td class="tabledata1">: <span th:utext="${noTelefon}"></span></td>
+				</tr>
+				<tr>
+					<td class="tabledata">No. Faks</td>
+					<td class="tabledata1">: <span th:utext="${noFas}"></span></td>
+				</tr>
+			</table>
+		</div>
+		<p style="font-size: 11px; line-height: 1.1">Sila pastikan Agensi Kutipan Hutang memperkenalkan diri dan menunjukkan kad wakil kuasa
+			ketika berurusan atau berjumpa dengan tuan/puan.</p>
+		<p style="font-size: 11px; line-height: 1.1">Sila ambil perhatian,
+			sekiranya tuan/puan gagal membayar tunggakan tersebut dalam masa yang
+			diberikan, tuan/puan adalah bertanggungjawab untuk menanggung kos
+			quaman yang terlibat di dalam urusan pengendalian akaun yang
+			tertunggak oleh Bank Islam.</p>
+		<p style="font-size: 11px; line-height: 1.1">PERHATIAN, sekiranya
+			bayaran yang dibuat adalah melalui Cek/ Bank Deraf, pembayaran
+			<span> hendaklah dibuat di atas nama Bank Islam Malaysia Berhad.</span><br/>
+			<span> Sila abaikan notis ini jikalau pembayaran telah dilakukan.</span></p>
+
+		<p style="font-size: 11px; line-height: 1.1">Sebarang pertanyaan,
+			sila hubungi pegawai-pegawai Bank Islam seperti berikut : 1) noor
+			faradillah (03-2732 1116) <span th:utext="${namaAgensi}"></span> <span th:utext="${noTelefon}"></span> 2) MUHAMMAD SHAHRIL (03-2782
+			1228)  <span th:utext="${namaPegawaiBank2}"></span> <span th:utext="${noTelefon}"></span></p>
+
+		<p style="font-size: 11px; margin: 0;">
+			<span>Yang benar,</span><br /> <span style="font-family: IBMPlexMonoBold;">BANK ISLAM MALAYSIA
+				BERHAD (98127-X)</span><br /> <span>S.K.</span> <span
+				style="margin-left: 70px;">(Penjamin-Jika ada)</span>
+
+		</p>
+
+		<p style="font-size: 11px; line-height: 1.1">Agensi Kaunseling dan
+			Pengurusan Kredit telah ditubuhkan oleh Bank Negara Malaysia untuk
+			menyediakan perkhidmatan pengurusan kewangan, kaunseling kredit,
+			pendidikan kewangan dan penstrukturan semula pembiayaan secara
+			percuma kepada individu. Untuk pertanyaan, sila hubungi talian
+			1-800-88-2575</p>
+		<p style="font-size: 11px;">SURAT INI ADALAH CETAKAN KOMPUTER. TANDATANGAN BERKUASA TIDAK DIPERLUKAN.</p>
+
+	</div>
+
+</body>
+</html>

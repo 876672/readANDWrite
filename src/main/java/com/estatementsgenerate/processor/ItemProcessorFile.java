@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import com.estatementsgenerate.model.Customer;
 import com.estatementsgenerate.pdffile.SendPdf;
 
-import jakarta.mail.MessagingException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -29,9 +28,10 @@ public class ItemProcessorFile implements ItemProcessor<Customer, Customer> {
 		  File pdfFile = sendPdf.generatePdf(item);
 	        
           System.out.println("---------pdfFile--------" +pdfFile);
-          if (!pdfFile.exists()) {
-            throw new MessagingException("Attachment file not found: ");
-        }
+          
+//          if (!pdfFile.exists()) {
+//            throw new MessagingException("Attachment file not found: ");
+//        }
 
         try (PDDocument doc = PDDocument.load(pdfFile)) {
             AccessPermission accessPermission = new AccessPermission();
@@ -50,14 +50,14 @@ public class ItemProcessorFile implements ItemProcessor<Customer, Customer> {
             spp.setEncryptionKeyLength(128);
             spp.setPermissions(accessPermission);
 
-            doc.protect(spp);
+//            doc.protect(spp);
             doc.save(pdfFile);
            
             
             
 
         }  catch (IOException e) {
-            throw new MessagingException("Error processing PDF file: " + e.getMessage(), e);
+//            throw new MessagingException("Error processing PDF file: " + e.getMessage(), e);
         
         }
 		return item;
